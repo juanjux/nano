@@ -8,6 +8,9 @@ import (
 func main() {
 	store.Init(store.LiveConfig)
 
-	node.SendKeepAlive(node.PeerList[0])
+	for _, n := range(node.PeerList) {
+		node.SendKeepAlive(n)
+	}
 	node.ListenForUdp()
 }
+
